@@ -1,0 +1,25 @@
+﻿<Page x:Class="Pet2.Pages.CurrentPetPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Pet2.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CurrentPetPage">
+
+    <Grid>
+        <StackPanel>
+        <Image Width="150" Height="150" Source="{Binding Photo, Converter={StaticResource RelativePathConverter}, TargetNullValue={StaticResource Image.Null}}" Stretch="Uniform" HorizontalAlignment="Center" Margin="5"/>
+        <TextBlock Text="{Binding Nickname}" Margin="5 5 5 15" HorizontalAlignment="Center" FontSize="15" TextWrapping="NoWrap" TextTrimming="WordEllipsis" TextAlignment="Center" FontWeight="Bold"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Text="Владелец: "/>
+                <TextBlock Text="{Binding Client.FullName}" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center"  FontSize="12"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="Телефон: "/>
+                <TextBlock Text="{Binding Client.Phone}" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center"  FontSize="12"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

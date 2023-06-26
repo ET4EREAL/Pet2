@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="78cddb86bb1e45d48a2d563c9812012d" Name="Diagram1">
+        <EntityTypeShape EntityType="PETHHModel.Cage" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETHHModel.Client" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETHHModel.Pet" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETHHModel.Service" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="PETHHModel.FK__Service__CageID__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="PETHHModel.FK__Pet__ClientID__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="PETHHModel.FK__Service__ClientI__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="PETHHModel.FK_Service_Pet" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

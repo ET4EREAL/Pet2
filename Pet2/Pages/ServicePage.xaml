@@ -1,0 +1,71 @@
+﻿<Page x:Class="Pet2.Pages.ServicePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Pet2.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ServicePage" IsVisibleChanged="Page_IsVisibleChanged">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="notfound" Visibility="Hidden" FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Text="Результатов не найдено"></TextBlock>
+        <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="0">
+            <TextBlock Margin="5 0">Сортировка по дате выселения:</TextBlock>
+            <RadioButton Content="По убыванию" Margin="5 0" Name="yb" Checked="voz_Checked"/>
+            <RadioButton Content="По возрастанию" Margin="5 0" Name="voz" Checked="voz_Checked"/>
+        </StackPanel>
+        <StackPanel Margin="5" Grid.Row="0"  Orientation="Horizontal">
+            <TextBlock>Поиск по номеру и ФИО:</TextBlock>
+            <TextBox Width="200" Margin="5 0" Name="endsbox" TextChanged="endsbox_TextChanged"/>
+        </StackPanel>
+        <DataGrid Grid.Row="1" x:Name="DGridService" AutoGenerateColumns="False" IsReadOnly="True" Background="#ECCDB1" HeadersVisibility="Column" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                  ScrollViewer.VerticalScrollBarVisibility="Hidden" Style="{StaticResource customcolor}" CellStyle="{StaticResource datagrid}">
+            <DataGrid.Columns>
+                <DataGridTextColumn MinWidth="20" Header="ID" Binding="{Binding ID}"></DataGridTextColumn>
+                <DataGridTextColumn MinWidth="40" Header="Телефон" Binding="{Binding Client.Phone}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn MinWidth="40" Header="Кличка" Binding="{Binding Pet.Nickname}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn MinWidth="80" Header="Номер вольера" Binding="{Binding Cage.Number}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn MinWidth="40" Header="Начало" Binding="{Binding StartsAt, StringFormat={}{0:dd.MM.yyyy}}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn MinWidth="40" Header="Конец" Binding="{Binding EndsAt, StringFormat={}{0:dd.MM.yyyy}}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn MinWidth="170" Header="Продолжительность (в днях)" Binding="{Binding Duration}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Дата Создания" Binding="{Binding CreatedAt, StringFormat={}{0:dd.MM.yyyy}}" Width="*"></DataGridTextColumn>
+
+
+                <DataGridTemplateColumn Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Закончить проживание" Name="BtnCancel" Click="BtnCancelEarlier_Click" >
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+        <TextBlock x:Name="CageCount" Grid.Row="2" HorizontalAlignment="Center"></TextBlock>
+
+        <Grid Grid.Row="3"  >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+        <Button Content="➕" Grid.Column="2" Height="30" Margin="5" Name="BtnAdd" Click="BtnAdd_Click"></Button>
+            <Button Content="✖" Grid.Column="3" Margin="5" Height="30"  Name="BtnDelete" Click="BtnDelete_Click"></Button>
+
+        </Grid>
+
+
+    </Grid>
+</Page>
